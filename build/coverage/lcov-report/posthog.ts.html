@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for posthog.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> posthog.ts
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306</td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">32x</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Bridge, { JsonMap } from './bridge'
+import { configure } from './configuration'
+import { Middleware, MiddlewareChain } from './middleware'
+import { ErrorHandler, NativeWrapper } from './wrapper'
+&nbsp;
+// prettier-ignore
+export module PostHog {
+	export interface Configuration {
+		/**
+		 * Which PostHog host to send events to.
+		 *
+		 * `https://app.posthog.com` by default
+		 */
+		host?: string
+		/**
+		 * Whether the posthog client should automatically make a screen call when a
+		 * view controller is added to a view hierarchy.
+		 * Because the iOS underlying implementation uses method swizzling,
+		 * we recommend initializing the posthog client as early as possible.
+		 * 
+		 * Disabled by default.
+		 */
+		recordScreenViews?: boolean
+		/**
+		 * Whether the posthog client should automatically capture application lifecycle events, such as
+		 * "Application Installed", "Application Updated" and "Application Opened".
+		 * 
+		 * Disabled by default.
+		 */
+		captureApplicationLifecycleEvents?: boolean
+&nbsp;
+		/**
+		 * Whether the posthog client should automatically capture deep links. You'll still need to call the
+		 * continueUserActivity and openURL methods on the posthog client.
+		 *
+		 * Disabled by default.
+		 */
+		captureDeepLinks?: boolean
+&nbsp;
+		/**
+		 * Register a set of integrations to be used with this PostHog instance.
+		 */
+		debug?: boolean
+&nbsp;
+		/**
+		 * The number of queued events that the posthog client should flush at.
+		 * Setting this to `1` will not queue any events and will use more battery.
+		 * 
+		 * `20` by default.
+		 */
+		flushAt?: number
+&nbsp;
+		/**
+		 * The amount of time to wait before each tick of the flush timer, in seconds.
+		 * Smaller values will make events delivered in a more real-time manner and also use more battery.
+		 * A value smaller than 10 seconds will seriously degrade overall performance.
+		 *
+		 * `30` seconds by default.
+		 */
+		flushInterval?: number
+&nbsp;
+		/**
+		 * iOS specific settings.
+		 */
+		ios?: {
+			/**
+			 * Whether the posthog client should use location services.
+			 * If `true` and the host app hasn't asked for permission to use location services then the user will be
+			 * presented with an alert view asking to do so. `false` by default. If `true`, please make sure to add a
+			 * description for `NSLocationAlwaysUsageDescription` in your `Info.plist` explaining why your app is
+			 * accessing Location APIs.
+			 *
+			 * Disabled by default.
+			 */
+			shouldUseLocationServices?: boolean
+			/**
+			 * The maximum number of items to queue before starting to drop old ones. This should be a value greater
+			 * than zero, the behaviour is undefined otherwise. `1000` by default.
+			 *
+			 * `1000` by default.
+			 */
+			maxQueueSize?: number
+			/**
+			 * Whether the posthog client should record bluetooth information. If `true`, please make sure to add a
+			 * description for `NSBluetoothPeripheralUsageDescription` in your `Info.plist` explaining explaining why
+			 * your app is accessing Bluetooth APIs. `false` by default.
+			 *
+			 * Disabled by default.
+			 */
+			shouldUseBluetooth?: boolean
+			/**
+			 * Whether the posthog client should automatically capture in-app purchases from the App Store
+			 *
+			 * Disabled by default.
+			 */
+			captureInAppPurchases?: boolean
+			/**
+			 * Whether the posthog client should automatically capture push notifications.
+			 *
+			 * Disabled by default.
+			 */
+			capturePushNotifications?: boolean
+		}
+		/**
+		 * Android specific settings.
+		 */
+		android?: {
+			/**
+			 * Whether the posthog client should client the device identifier.
+			 * The device identifier is obtained using :
+			 * - `android.provider.Settings.Secure.ANDROID_ID`
+			 * - `android.os.Build.SERIAL`
+			 * - or Telephony Identifier retrieved via TelephonyManager as available
+			 * 
+			 * Enabled by default.
+			 */
+			collectDeviceId?: boolean
+		}
+	}
+&nbsp;
+	export class Client {
+		/**
+		 * Whether the client is ready to send events to PostHog.
+		 *
+		 * This becomes `true` when `.setup()` succeeds.
+		 * All calls will be queued until it becomes `true`.
+		 */
+		public readonly ready = false
+&nbsp;
+		private readonly wrapper = new NativeWrapper(this, err =&gt;
+			this.handleError(err)
+		)
+		private readonly handlers: ErrorHandler[] = []
+		private readonly middlewares = new MiddlewareChain(this.wrapper)
+&nbsp;
+		/**
+		 * Catch React-Native bridge errors
+		 *
+		 * These errors are emitted when calling the native counterpart.
+		 * This only applies to methods with no return value (`Promise&lt;void&gt;`),
+		 * methods like `getAnonymousId` do reject promises.
+		 */
+		public catch(handler: ErrorHandler) {
+			this.handlers.push(handler)
+&nbsp;
+			return this
+		}
+&nbsp;
+		public middleware(middleware: Middleware) {
+			this.middlewares.add(middleware)
+&nbsp;
+			return this
+		}
+&nbsp;
+		/**
+		 * Use the native configuration.
+		 * 
+		 * You'll need to call this method when you configure PostHog's singleton
+		 * using the native API.
+		 */
+<span class="fstat-no" title="function not covered" >		public useNativeConfiguration() {</span>
+<span class="cstat-no" title="statement not covered" >			if(this.ready) {</span>
+<span class="cstat-no" title="statement not covered" >				throw new Error('PostHog has already been configured')</span>
+			}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			this.wrapper.ready()</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			return this</span>
+		}
+&nbsp;
+		/**
+		 * Setup the PostHog module. All calls made before are queued
+		 * and only executed if the configuration was successful.
+		 *
+		 * ```js
+		 * await posthog.setup('YOUR_API_KEY', {
+		 *   captureAppLifecycleEvents: true,
+		 *   ios: {
+		 *     capturePushNotifications: true
+		 *   }
+		 * })
+		 * ```
+		 * 
+		 * @param apiKey Your PostHog.com API key
+		 * @param configuration An optional {@link Configuration} object.
+		 */
+		public async setup(apiKey: string, <span class="missing-if-branch" title="else path not taken" >E</span>configuration: Configuration = {}) {
+			await Bridge.setup(
+				await configure(apiKey, configuration)
+			)
+			this.wrapper.ready()
+		}
+&nbsp;
+		/**
+		 * Record the actions your users perform.
+		 *
+		 * When a user performs an action in your app, you'll want to capture that action for later analysis.
+		 * Use the event name to say what the user did, and properties to specify any interesting details of the action.
+		 *
+		 * @param event The name of the event you're capturing.
+		 * We recommend using human-readable names like `Played a Song` or `Updated Status`.
+		 * @param properties A dictionary of properties for the event.
+		 * If the event was 'Added to Shopping Cart', it might have properties like price, productType, etc.
+		 */
+		public async capture(event: string, properties: JsonMap = {}) {
+			await this.middlewares.run('capture', { event, properties })
+		}
+&nbsp;
+		/**
+		 * Record the screens or views your users see.
+		 *
+		 * When a user views a screen in your app, you'll want to record that here.
+		 *
+		 * @param screen The title of the screen being viewed.
+		 * We recommend using human-readable names like 'Photo Feed' or 'Completed Purchase Screen'.
+		 * @param properties A dictionary of properties for the screen view event.
+		 * If the event was 'Added to Shopping Cart', it might have properties like price, productType, etc.
+		 */
+		public async screen(screen: string, <span class="missing-if-branch" title="if path not taken" >I</span>properties: JsonMap = {}) {
+			await this.middlewares.run('screen', { screen, properties })
+		}
+&nbsp;
+		/**
+		 * Associate a user with their unique ID and record traits about them.
+		 *
+		 * When you learn more about who your user is, you can record that information with identify.
+		 *
+		 * @param distinctId database ID (or email address) for this user.
+		 * If you don't have a userId but want to record traits, you should pass nil.
+		 * @param properties A dictionary of properties you know about the user. Things like: email, name, plan, etc.
+		 */
+		public async identify(distinctId: string | null, <span class="missing-if-branch" title="if path not taken" >I</span>properties: JsonMap = {}) {
+			await this.middlewares.run('identify', { distinctId, properties })
+		}
+&nbsp;
+&nbsp;
+		/**
+		 * Merge two user identities, effectively connecting two sets of user data as one.
+		 *
+		 * When you learn more about who the group is, you can record that information with group.
+		 *
+		 * @param alias The existing ID you want to link to the current distinct ID.
+		 */
+		public async alias(alias: string) {
+			await this.middlewares.run('alias', { alias })
+		}
+&nbsp;
+		/**
+		 * Reset any user state that is cached on the device.
+		 *
+		 * This is useful when a user logs out and you want to clear the identity.
+		 * It will clear any traits or userId's cached on the device.
+		 */
+		public async reset() {
+			await this.wrapper.run('reset', reset =&gt; reset())
+		}
+&nbsp;
+		/**
+		 * Trigger an upload of all queued events.
+		 *
+		 * This is useful when you want to force all messages queued on the device to be uploaded.
+		 * Please note that not all integrations respond to this method.
+		 */
+		public async flush() {
+			await this.wrapper.run('flush', flush =&gt; flush())
+		}
+&nbsp;
+		/**
+		 * Enable the sending of posthog data. Enabled by default.
+		 *
+		 * Occasionally used in conjunction with disable user opt-out handling.
+		 */
+		public async enable() {
+			await this.wrapper.run('enable', enable =&gt; enable())
+		}
+&nbsp;
+		/**
+		 * Completely disable the sending of any posthog data.
+		 *
+		 * If you have a way for users to actively or passively (sometimes based on location) opt-out of
+		 * posthog data collection, you can use this method to turn off all data collection.
+		 */
+		public async disable() {
+			await this.wrapper.run('disable', disable =&gt; disable())
+		}
+&nbsp;
+		/** Retrieve the anonymousId. */
+		public async getAnonymousId(): Promise&lt;string&gt; {
+			await this.wrapper.wait()
+&nbsp;
+			return Bridge.getAnonymousId()
+		}
+&nbsp;
+		private handleError(error: Error) {
+			const { handlers } = this
+&nbsp;
+			if (!handlers.length) {
+				console.error('Uncaught PostHog error', error)
+				throw error
+			} else {
+				handlers.forEach(handler =&gt; handler(error))
+			}
+		}
+	}
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Mar 29 2022 11:45:52 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>

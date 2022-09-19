@@ -14,16 +14,8 @@
     "RNPostHog.podspec"
   ],
   "scripts": {
-    "build:clean": "rimraf build",
-    "build:ts": "run-p build:ts:*",
-    "build:ts:cjs": "tsc --target es5 --outDir build/cjs --module commonjs",
-    "build:ts:esm": "tsc --target es5 --outDir build/esm --module esnext",
-    "build:pkg": "ts-node -T src/make-pkg.ts > build/package.json",
-    "build": "run-s build:{clean,ts,pkg}",
     "lint": "tslint -p ../packages",
-    "test": "jest",
-    "deploy": "deploy.sh",
-    "prepublish": "yarn build"
+    "test": "jest"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
